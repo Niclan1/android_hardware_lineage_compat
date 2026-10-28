@@ -1032,3 +1032,16 @@ java_library {
         "frameworks/telephony-common-stub/src/**/*.java",
     ],
 }
+
+// Legacy codec2 dependency, retained from pinned Lineage22.2 provider.
+cc_prebuilt_library_shared {
+    name: "libui-v30",
+    vendor: true,
+    strip: { none: true },
+    shared_libs: ["android.hardware.graphics.allocator@2.0", "android.hardware.graphics.allocator@3.0", "android.hardware.graphics.allocator@4.0", "android.hardware.graphics.common@1.2", "android.hardware.graphics.mapper@2.0", "android.hardware.graphics.mapper@2.1", "android.hardware.graphics.mapper@3.0", "android.hardware.graphics.mapper@4.0", "libbase", "libcutils", "libgralloctypes", "libhidlbase", "libsync", "libutils", "liblog", "libc++", "libc", "libm", "libdl"],
+    target: {
+        android_arm: { srcs: ["vndk/v30/arm/libui-v30.so"] },
+        android_arm64: { srcs: ["vndk/v30/arm64/libui-v30.so"] },
+    },
+    compile_multilib: "both",
+}
